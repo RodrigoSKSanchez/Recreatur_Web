@@ -1,0 +1,10 @@
+.fundo {
+    z-index: -1;
+    position: absolute;
+    display: inline-block;
+    background-image: url("../imagens/background.png");
+    background-repeat: repeat;
+    width: 95vw;
+    height: 1650px;
+    opacity: 0.25;
+}
