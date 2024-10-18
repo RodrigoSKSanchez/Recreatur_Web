@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Recreatur</title>
+</head>
+
+<body>
+    <header class="d-flex bg-primary container-fluid col-12 justify-content-center">
+        <div class="row col-12 justify-content-center">
+            <div class="col-12 col-md-6 row justify-content-center">
+                <img src="imagens/icon.png" alt="Logo Passatempo Educativo" class="col-md-2 col-6">
+                <div
+                    class="d-flex flex-column align-items-center col-md-3 col-12 text-danger lh-1 fw-semibold justify-content-center">
+                    <p class="mb-auto fs-2">Passatempo</p>
+                    <p class="fs-3">Educativo</p>
+                </div>
+            </div>
+            <nav class="navbar col-12 col-md align-items-center justify-content-center">
+                <a href="home_page.html" class="nav-link border border-black rounded-3 p-1 bg-warning">Home</a>
+                <a href="#" class="nav-link active border border-black rounded-3 p-1 bg-warning">Habilidades do
+                    Profissional do
+                    Futuro</a>
+                <a href="" class="nav-link border border-black rounded-3 p-1 bg-warning">Temas Atuais</a>
+                <a href="" class="nav-link border border-black rounded-3 p-1 bg-warning">Depoimentos</a>
+                <a href="" class="nav-link border border-black rounded-3 p-1 bg-success">Faça uma Doação!</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active c-item">
+                    <img src="imagens/carousel_img1.jpg" class="d-block w-100 c-img" alt="Slide 1">
+                </div>
+            </div>
+            <div class="carousel-item c-item">
+                <img src="imagens/carousel_img2.jpg" class="d-block w-100 c-img" alt="Slide 2">
+            </div>
+            <div class="carousel-item c-item">
+                <img src="imagens/carousel_img3.jpg" class="d-block w-100 c-img" alt="Slide 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+    </main>
+</body>
+
+</html>
