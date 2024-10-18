@@ -11,6 +11,25 @@
     opacity: 0.25;
 }
 
+/* config do header */
+
 .botao_apoie {
     background-color: #36E110;
+}
+
+.botao_apoie:hover {
+    background-color: rgb(59, 141, 41)
+}
+
+.selecionado {
+    background-color: rgb(246, 250, 24);
+}
+
+.nav-link {
+    margin: 3px;
+}
+
+.botoes_header:hover {
+    background-color: rgb(250, 205, 24);
+    
 }
