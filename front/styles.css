@@ -9,25 +9,26 @@
 .icons > img {
     width: 35px;
     
-
 }
 
-.fundob {
+.fundo {
+    z-index: -1;
     background-image: url(imagens/2.PNG);
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.25;
 }
 
 #box-depoimentos {
     background-color:white;
 }
 
-
-#footer {
-        background-image: url(imagens/fundof.PNG);
-        background-size: cover; /* Ajusta a imagem para cobrir todo o footer */
-        background-repeat: no-repeat; /* Não repete a imagem */
-        height: 200px; /* Ajuste a altura conforme necessário */
-        color: white; /* Cor do texto, se necessário */
-        margin-bottom: 50px;
-        
-    
+footer {
+    background-image: url(imagens/fundof.PNG);
+    color: white;
 }
