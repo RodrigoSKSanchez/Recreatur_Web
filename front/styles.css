@@ -11,12 +11,23 @@
     
 
 }
+
+.fundob {
+    background-image: url(imagens/2.PNG);
+}
+
+#box-depoimentos {
+    background-color:white;
+}
+
+
 #footer {
-        background-image: url(fundof.png);
+        background-image: url(imagens/fundof.PNG);
         background-size: cover; /* Ajusta a imagem para cobrir todo o footer */
         background-repeat: no-repeat; /* Não repete a imagem */
         height: 200px; /* Ajuste a altura conforme necessário */
         color: white; /* Cor do texto, se necessário */
         margin-bottom: 50px;
+        
     
 }
