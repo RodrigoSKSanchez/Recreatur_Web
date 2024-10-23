@@ -33,3 +33,16 @@
     background-color: rgb(250, 205, 24);
     
 }
+
+
+/*config do footer */
+.icons > img {
+    width: 35px;
+    
+}
+
+footer {
+    background-image: url("../imagens/fundof.PNG");
+    color: white;
+    
+}
