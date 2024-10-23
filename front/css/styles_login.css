@@ -56,5 +56,16 @@ input {
 }
 
 .botao:hover {
-    background-color: #45a049;
+    background-color: #2f7f33;
+}
+
+.voltar {
+    background-color: red;
+    color: white;
+    width: 30px;
+    text-align: center;
+}
+
+.voltar:hover {
+    background-color: darkred;
 }
