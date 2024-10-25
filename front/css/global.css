@@ -1,12 +1,35 @@
 .fundo {
     z-index: -1;
-    position: fixed;
+    position: fixed; 
     top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
     background-image: url("../imagens/background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; 
+    background-repeat: no-repeat; 
     opacity: 0.25;
+}
+
+/* config do header */
+
+.botao_apoie {
+    background-color: #36E110;
+}
+
+.botao_apoie:hover {
+    background-color: rgb(59, 141, 41)
+}
+
+.selecionado {
+    background-color: rgb(246, 250, 24);
+}
+
+.nav-link {
+    margin: 3px;
+}
+
+.botoes_header:hover {
+    background-color: rgb(250, 205, 24);
+    
 }
