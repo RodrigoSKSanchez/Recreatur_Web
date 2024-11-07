@@ -15,6 +15,7 @@
 
 .botao_apoie {
     background-color: #36E110;
+    border: 2px solid black;
 }
 
 .botao_apoie:hover {
