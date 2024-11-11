@@ -2,34 +2,33 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="imagens/icon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="imagens/icon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/style_home.css">
-    <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/style_home.css">
+  <link rel="stylesheet" href="css/global.css">
 
-    <title>Recreatur</title>
+  <title>Recreatur</title>
 </head>
 
 <body>
 
   <header class="d-flex bg-primary container-fluid col-12 justify-content-center">
     <div class="row col-12 justify-content-center">
-        <div class="col-12 col-md-6 row justify-content-center">
-            <img src="imagens/icon.png" alt="Logo Passatempo Educativo" class="logo">
-            <div
-                class="d-flex flex-column align-items-center text-danger lh-1 fw-semibold justify-content-center pl-4">
-                <p class="mb-auto fs-2">Passatempo</p>
-                <p class="fs-4">Educativo</p>
-            </div>
+      <div class="col-12 col-md-6 row justify-content-center">
+        <img src="imagens/icon.png" alt="Logo Passatempo Educativo" class="logo">
+        <div class="d-flex flex-column align-items-center text-danger lh-1 fw-semibold justify-content-center pl-4">
+          <p class="mb-auto fs-2">Passatempo</p>
+          <p class="fs-4">Educativo</p>
         </div>
+      </div>
       <nav class="navbar col-12 col-md align-items-center justify-content-center">
         <a href="home_page.html" class="selecionado botoes_header nav-link rounded-3 p-1">Home</a>
         <a href="habilidades_profissional.html" class="botoes_header nav-link rounded-3  p-1">Habilidades do Futuro</a>
@@ -40,18 +39,21 @@
     </div>
   </header>
 
-    <main class="pb-5">
-      <div class="fundo"></div>
+  <main class="pb-5">
+    <div class="fundo"></div>
 
-      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active c-item">
+          <img src="imagens/carousel_img1.jpg" class="d-block w-100 c-img" alt="Slide 1">
         </div>
+
         <div class="carousel-inner">
             <div class="carousel-item active c-item">
                 <img src="imagens/carousel_img1.jpg" class="d-block w-100 c-img" alt="Slide 1">
@@ -63,164 +65,173 @@
                 <img src="imagens/carousel_img3.jpg" class="d-block w-100 c-img" alt="Slide 3">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button>
+        <div class="carousel-item c-item">
+          <img src="imagens/carousel_img3.jpg" class="d-block w-100 c-img" alt="Slide 3">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
     </div>
 
-        <div class="container-fluid">
-            <section class="row justify-content-center p-5">
+    <div class="container-fluid">
+      <section class="row justify-content-center p-5">
 
-              <div class="row justify-content-center bg-white col-10 border rounded-4 ">
+        <div class="row justify-content-center bg-white col-10 border rounded-4 ">
 
-                <h1 class="text-decoration-underline text-center text-danger p-3">Quem Somos</h1>
-  
-                <p class="text-center fs-5 col-12 p-3">Somos uma uma organização não governamental, sem fins lucrativos,
-                    que
-                    desenvolve projetos nas áreas educacional, cultural, preservação do meio ambiente e ações para o
-                    desenvolvimento do turismo
-                    sustentável.
-  
-                <p class="text-center fs-5 col-12 p-3">Há 23 anos para desenvolvimento de jovens, crianças e
-                    comunidades, nossos projetos têm como objetivos
-                    dar continuidade no processo ensino-aprendizagem através de situações práticas com atividades nas
-                    escolas, empresas, estudos do
-                    meio, visitas monitoradas, oficinas, workshops, palestras, jogos e gincanas dirigidos.</p>
-                </p>
+          <h1 class="text-decoration-underline text-center text-danger p-3">Quem Somos</h1>
 
-              </div>
+          <p class="text-center fs-5 col-12 p-3">Somos uma uma organização não governamental, sem fins lucrativos,
+            que
+            desenvolve projetos nas áreas educacional, cultural, preservação do meio ambiente e ações para o
+            desenvolvimento do turismo
+            sustentável.
 
+          <p class="text-center fs-5 col-12 p-3">Há 23 anos para desenvolvimento de jovens, crianças e
+            comunidades, nossos projetos têm como objetivos
+            dar continuidade no processo ensino-aprendizagem através de situações práticas com atividades nas
+            escolas, empresas, estudos do
+            meio, visitas monitoradas, oficinas, workshops, palestras, jogos e gincanas dirigidos.</p>
+          </p>
 
-            </section>
         </div>
-        <div class="container-fluid">
-            <section class="row justify-content-center p-5">
-
-              <div class="row justify-content-center bg-white col-10 border rounded-4">
-
-                <h1 class="text-decoration-underline text-center text-danger p-3">O que é o Recreatur?</h1>
-  
-                <p class="text-center fs-5 col-12 p-3">O RecreaTur une o universo da recreação e do turismo em prol do desenvolvimento
-                 de habilidades sociais e profissionais, utilizando criatividade, ludicidade, dinamismo, conteúdos teóricos do lazer e 
-                 do turismo e práticas como: elaboração e planejamento de atividades recreativas pedagógicas, elaboração de roteiros 
-                 turísticos e monitoria em espaços educativos/recreativos. Esse projeto traz os inúmeros benefícios da recreação no 
-                 âmbito social, educacional, profissional e interpessoal, de como ela pode ser uma grande aliada em nosso desenvolvimento.
-                 Adicionalmente, o RecreaTur introduz o jovem no estudo do turismo, ampliando a visão deste sobre essa atividade econômica 
-                 através de conteúdos teóricos e atividades práticas.
-  
-                <p class="text-center fs-5 col-12 p-3">Nosso projeto teve início em 2009, inicialmente em São Paulo. Ao longo das nossas
-                 edições, o RecreaTur alcançou também as cidades de Cotia e Campos do Jordão, levando diferentes e importantes temas sociais e 
-                 turísticos.</p>
-                
-                 <p class="text-center fs-5 col-12 p-3">No ano de 2011 o Projeto Recreatur foi contemplado como finalista regional e 
-                 semifinalista Nacional no prêmio Itaú-Unicef, como uma entidade que apoia e valoriza projetos que promovem a educação
-                 integral do ser humano, através da parceria escola – ONGs.</p>
-                </p>
-
-              </div>
 
 
+      </section>
+    </div>
+    <div class="container-fluid">
+      <section class="row justify-content-center p-5">
 
-      
-                      </section>
+        <div class="row justify-content-center bg-white col-10 border rounded-4">
+
+          <h1 class="text-decoration-underline text-center text-danger p-3">O que é o Recreatur?</h1>
+
+          <p class="text-center fs-5 col-12 p-3">O RecreaTur une o universo da recreação e do turismo em prol do
+            desenvolvimento
+            de habilidades sociais e profissionais, utilizando criatividade, ludicidade, dinamismo, conteúdos teóricos
+            do lazer e
+            do turismo e práticas como: elaboração e planejamento de atividades recreativas pedagógicas, elaboração de
+            roteiros
+            turísticos e monitoria em espaços educativos/recreativos. Esse projeto traz os inúmeros benefícios da
+            recreação no
+            âmbito social, educacional, profissional e interpessoal, de como ela pode ser uma grande aliada em nosso
+            desenvolvimento.
+            Adicionalmente, o RecreaTur introduz o jovem no estudo do turismo, ampliando a visão deste sobre essa
+            atividade econômica
+            através de conteúdos teóricos e atividades práticas.
+
+          <p class="text-center fs-5 col-12 p-3">Nosso projeto teve início em 2009, inicialmente em São Paulo. Ao longo
+            das nossas
+            edições, o RecreaTur alcançou também as cidades de Cotia e Campos do Jordão, levando diferentes e
+            importantes temas sociais e
+            turísticos.</p>
+
+          <p class="text-center fs-5 col-12 p-3">No ano de 2011 o Projeto Recreatur foi contemplado como finalista
+            regional e
+            semifinalista Nacional no prêmio Itaú-Unicef, como uma entidade que apoia e valoriza projetos que promovem a
+            educação
+            integral do ser humano, através da parceria escola – ONGs.</p>
+          </p>
+
         </div>
-        <div class="container-fluid">
-          <section class="row justify-content-center p-5">
-            <div class="row justify-content-center bg-white col-5 border rounded-4">
-              <a href="patrocinadores.html" class="text-center text-danger p-3">PATROCINADORES</a>
-            </div>
-          </section>
+
+      </section>
+    </div>
+    <div class="container-fluid">
+      <section class="row justify-content-center p-5">
+        <div class="row justify-content-center bg-white col-5 border rounded-4">
+          <a href="patrocinadores.html" class="text-center text-danger p-3">PATROCINADORES</a>
         </div>
-                <!-- Botão temporario :D -->
-                <a href="login.html" class="nav-link border border-black rounded-4 p-1 col-2 bg-danger">LOG IN</a>
+      </section>
+    </div>
 
-    </main>
+  </main>
 
-    <footer class="container-fluid">
-      <div class="row py-4 row-gap-5">
-          <div class="col-md col-12 justify-content-center text-center">
-              <div class="row redes-box justify-content-center">
-                  <h6>Redes sociais</h6>
-                  <div class="d-flex gap-4 justify-content-center">
-                      <a href="https://www.instagram.com/passatempoeducativo/?hl=pt-br" class="icons">
-                      
-                      <img src="imagens/instagram.png">
+  <footer class="container-fluid">
+    <div class="row py-4 row-gap-5">
+      <div class="col-md col-12 justify-content-center text-center">
+        <div class="row redes-box justify-content-center">
+          <h6>Redes sociais</h6>
+          <div class="d-flex gap-4 justify-content-center">
+            <a href="https://www.instagram.com/passatempoeducativo/?hl=pt-br" class="icons">
 
-                  </a>
+              <img src="imagens/instagram.png">
 
-                  <a href="https://pt-br.facebook.com/Passatempoedu?ref=stream&hc_location=stream&filter=2" class="icons">
-                      <img src="imagens/facebook.png">
-                  </a>
+            </a>
 
-                  <a href="" class="icons">
-                      <img src="imagens/whatsapp.png">
-                  </a>
-                  </div>
+            <a href="https://pt-br.facebook.com/Passatempoedu?ref=stream&hc_location=stream&filter=2" class="icons">
+              <img src="imagens/facebook.png">
+            </a>
 
-                  <div class="p-5">
-                    <a href="login.html" class="nav-link">
-                        <h5>Espaço adm</h5>
-                    </a>
-                  </div>
-
-              </div>
+            <a href="" class="icons">
+              <img src="imagens/whatsapp.png">
+            </a>
           </div>
-          <div class="col-md col-12 justify-content-center text-center">
-              <div class="row contact-box justify-content-center">
-                  <h5>Contato</h5>
-                  <span class="contact-title fw-semibold ">Telefone:</span>
-                  <p> (11) 99757-9540</p>
-                  <span class="contact-title fw-semibold ">E-mail:</span>
-                  <p>passatempo@passatempoeducativo.org.br</p>
-              </div>
+
+          <div class="p-5">
+            <a href="login.html" class="nav-link">
+              <h5>Espaço adm</h5>
+            </a>
           </div>
-          <div class="col-md col-12 justify-content-center text-center">
-              <div class="row explore-box justify-content-center">
-                  <h5>Explore</h5>
-                  <div class="d-flex justify-content-center col">
-                      <ul class="text-start">
-                        <a href="home_page.html" class="nav-link">
-                          <li>Home</li>
-                        </a>
-  
-                        <a href="habilidades_profissional.html" class="nav-link">
-                          <li>Habilidades do Futuro</li>
-                        </a>
-  
-                        <a href="temas_atuais.html" class="nav-link">
-                          <li>Temas Atuais</li>
-                        </a>
-  
-                        <a href="depoimentos.html" class="nav-link">
-                          <li>Depoimentos</li>
-                        </a>
-  
-                        <a href="nos_apoie.html" class="nav-link">
-                          <li>Nos Apoie</li>
-                        </a>
-                      </ul>
-                  </div>
-              </div>
-          </div>
+
+        </div>
       </div>
+      <div class="col-md col-12 justify-content-center text-center">
+        <div class="row contact-box justify-content-center">
+          <h5>Contato</h5>
+          <span class="contact-title fw-semibold ">Telefone:</span>
+          <p> (11) 99757-9540</p>
+          <span class="contact-title fw-semibold ">E-mail:</span>
+          <p>passatempo@passatempoeducativo.org.br</p>
+        </div>
+      </div>
+      <div class="col-md col-12 justify-content-center text-center">
+        <div class="row explore-box justify-content-center">
+          <h5>Explore</h5>
+          <div class="d-flex justify-content-center col">
+            <ul class="text-start">
+              <a href="home_page.html" class="nav-link">
+                <li>Home</li>
+              </a>
+
+              <a href="habilidades_profissional.html" class="nav-link">
+                <li>Habilidades do Futuro</li>
+              </a>
+
+              <a href="temas_atuais.html" class="nav-link">
+                <li>Temas Atuais</li>
+              </a>
+
+              <a href="depoimentos.html" class="nav-link">
+                <li>Depoimentos</li>
+              </a>
+
+              <a href="nos_apoie.html" class="nav-link">
+                <li>Nos Apoie</li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
 
-    <!-- Código do Vlibras -->
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
+  <!-- Código do Vlibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
     </div>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
-    <!--  -->
-    
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <!--  -->
+
 </body>
 
 </html>
