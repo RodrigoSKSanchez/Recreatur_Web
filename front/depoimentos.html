@@ -46,6 +46,74 @@
           </div>
         </div>
       </div>
+
+      <div class="modal fade" id="modalEditarDepoimentos" aria-labelledby="modalEditarDepoimentos" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title">
+                Editar Depoimento
+              </h1>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-dismissible fade d-none alert-modal-editar-depoimentos" role="alert">
+              </div>
+              <div class="mb-3">
+                <label for="idDepoimentoEditarInput" class="col-form-label">ID Depoimento</label>
+                <input class="form-control" id="idDepoimentoEditarInput" disabled></input>
+              </div>
+              <div class="mb-3">
+                <label for="textoDepoimentoEditarInput" class="col-form-label">Texto Depoimento</label>
+                <textarea class="form-control" id="textoDepoimentoEditarInput"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="infoPessoaEditarInput" class="col-form-label">Informações Pessoa ({Nome}, {idade} anos) </label>
+                <input type="text" class="form-control" id="infoPessoaEditarInput">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" onclick="editarDepoimento()">Editar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalRemoverDepoimentos" aria-labelledby="modalRemoverDepoimentos" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title">
+                Remover Depoimentos
+              </h1>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-dismissible fade d-none alert-modal-remover-depoimentos" role="alert">
+              </div>
+              <div class="mb-3">
+                <label for="idDepoimentoRemoverInput" class="col-form-label">ID Depoimento</label>
+                <input class="form-control" id="idDepoimentoRemoverInput" disabled></input>
+              </div>
+              <div class="mb-3">
+                <label for="textoDepoimentoRemoverInput" class="col-form-label">Texto Depoimento</label>
+                <textarea class="form-control" id="textoDepoimentoRemoverInput" disabled></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="infoPessoaRemoverInput" class="col-form-label">Informações Pessoa ({Nome}, {idade} anos) </label>
+                <input type="text" class="form-control" id="infoPessoaRemoverInput" disabled>
+              </div>
+              <div class="mb-3">
+                <h4>Deseja realmente remover o depoimento?</h4>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" onclick="removerDepoimento()">Remover</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <header class="d-flex bg-primary container-fluid col-12 justify-content-center">
         <div class="row col-12 justify-content-center">
             <div class="col-12 col-md-6 row justify-content-center">
@@ -79,10 +147,10 @@
                 </div>
             </section>
             <!-- visível apenas para o adm -->
-            <div class="d-flex justify-content-center bg-white align-items-center">
+            <div class="d-flex justify-content-center bg-white align-items-center gap-2">
                 <h4 class="">Adicionar novos depoimentos</h4>
-                <button class="btn" data-bs-toggle="modal" data-bs-target="#modalDepoimentos">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="blue"
+                <button class="btn bg-primary" data-bs-toggle="modal" data-bs-target="#modalDepoimentos">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white"
                         class="bi bi-plus-square-fill" viewBox="0 0 16 16">
                         <path
                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
@@ -200,6 +268,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="js/frontend.js"></script>
+    <script src="js/depoimentos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 

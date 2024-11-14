@@ -88,6 +88,25 @@ app.post("/depoimentos", async (req, res) => {
     res.json(depoimentos);
 });
 
+app.put("/depoimentos", async (req, res) => {
+    const idDepoimento = req.body.idDepoimento;
+    const textoDepoimento = req.body.texto_depoimento;
+    const infoPessoa = req.body.info_pessoa;
+    await Depoimento.findByIdAndUpdate(idDepoimento, {
+        texto_depoimento : textoDepoimento,
+        info_pessoa : infoPessoa
+    });
+    const depoimentos = await Depoimento.find();
+    res.json(depoimentos);
+});
+
+app.delete("/depoimentos", async (req, res) =>{
+    const id = req.body.idDepoimento;
+    await Depoimento.findByIdAndDelete(id);
+    const depoimentos = await Depoimento.find();
+    res.json(depoimentos);
+});
+
 app.listen(3000, () => {
     try {
         conectarAoMongo();
