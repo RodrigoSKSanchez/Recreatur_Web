@@ -10,12 +10,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-function base64_encode(imagem) {
-    let base64 = fs.readFileSync(imagem, {
-        encoding : "base64"
-    });
-    return base64;
-};
 
 const TemasAtuais = mongoose.model("Temas_Atuais", mongoose.Schema({
     titulo : {type : String},
@@ -48,6 +42,28 @@ const Usuario = mongoose.model("Usuario", usuarioSchema);
 async function conectarAoMongo() {
     await mongoose.connect(process.env.DATABASE_URL);
 }
+
+app.post("/signup", async (req, res) => {
+    try {
+        const login = req.body.login;
+        const password = req.body.password;
+        const password_criptografada = await bcrypt.hash(password, 10);
+        const tokenCadastrar = req.body.token; // Fazendo essa validação para criar um único usuário
+        if(tokenCadastrar && tokenCadastrar == process.env.JWT_SECRET){
+            const usuario = new Usuario({ login: login, password: password_criptografada });
+            const respMongo = await usuario.save();
+            console.log(respMongo);
+            res.status(201).end();
+        }
+        else {
+            res.json({mensagem : "Acesso não autorizado"}).end();
+        }
+    }
+    catch (e) {
+        console.log(e);
+        res.status(409).end();
+    }
+});
 
 app.post("/login", async (req, res) => {
     const login = req.body.login;
@@ -105,6 +121,27 @@ app.delete("/depoimentos", async (req, res) =>{
     await Depoimento.findByIdAndDelete(id);
     const depoimentos = await Depoimento.find();
     res.json(depoimentos);
+});
+
+app.get("/temas-atuais", async (req, res) => {
+    const temasAtuais = await TemasAtuais.find();
+    console.log(temasAtuais);
+    res.json(temasAtuais);
+});
+
+app.post("/temas-atuais", async (req,res) => {
+    const titulo = req.body.titulo;
+    const texto = req.body.texto;
+    const imagem = req.body.imagem;
+
+    const temaAtual = new TemasAtuais({
+        titulo : titulo,
+        texto : texto,
+        imagem : imagem
+    });
+    await temaAtual.save();
+    const temasAtuais = await TemasAtuais.find();
+    res.json(temasAtuais);
 });
 
 app.listen(3000, () => {

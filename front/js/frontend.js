@@ -32,23 +32,53 @@ async function fazerLogin() {
                 URLCompleta,
                 { login: usuarioLogin, password: passwordLogin }
             )
-            console.log(response.data)
+            localStorage.setItem("token", response.data);
+            fazerLogout();
             usuarioLoginInput.value = ""
             passwordLoginInput.value = ""
             exibirAlerta('.alert-modal-login', "Login efetuado com sucesso!",
-                ['show', 'alert-success'], ['d-none', 'alert-success'], 2000)
-            const cadastrarFilmeButton =
-                document.querySelector('#cadastrarFilmeButton')
-            cadastrarFilmeButton.disabled = false
+                ['show', 'alert-success'], ['d-none', 'alert-danger'], 2000)
+            
         }
         catch (error) {
             exibirAlerta('.alert-modal-login', "Erro ao fazer login", ['show',
-                'alert-danger'], ['d-none', 'alert-danger'], 2000)
+                'alert-danger'], ['d-none', 'alert-success'], 2000)
         }
     }
     else {
         exibirAlerta('.alert-modal-login', 'Preencha todos os campos', ['show',
-            'alert-danger'], ['d-none', 'alert-danger'], 2000)
+            'alert-danger'], ['d-none', 'alert-success'], 2000)
     }
 }
 
+function fazerLogout() {
+    let token = localStorage.getItem("token");
+    let divLogin = document.querySelector("#divLogin");
+    if(token && divLogin) {
+        while (divLogin.firstChild) {
+            divLogin.removeChild(divLogin.lastChild);
+        }
+        let botaoLogout = document.createElement("button");
+        botaoLogout.innerText = "Logout";
+        botaoLogout.className = "btn btn-primary";
+        divLogin.append(botaoLogout);
+        console.log(divLogin);
+        botaoLogout.onclick = function() {
+            localStorage.removeItem("token");
+            divLogin.removeChild(botaoLogout);
+            let linkLogin = document.createElement("a");
+            linkLogin.className = "nav-link";
+            linkLogin.href = "login.html";
+            let linkTexto = document.createElement("h5");
+            linkTexto.textContent = "Espaço adm";
+            linkLogin.append(linkTexto);
+            divLogin.append(linkLogin);
+            console.log(divLogin);
+        }
+    }
+
+}
+
+function prepararPagina() {
+    fazerLogout();
+}

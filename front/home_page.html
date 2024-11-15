@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="imagens/icon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,7 +17,7 @@
   <title>Recreatur</title>
 </head>
 
-<body>
+<body onload="prepararPagina()">
 
   <header class="d-flex bg-primary container-fluid col-12 justify-content-center">
     <div class="row col-12 justify-content-center">
@@ -162,7 +161,7 @@
             </a>
           </div>
 
-          <div class="p-5">
+          <div class="p-5" id="divLogin">
             <a href="login.html" class="nav-link">
               <h5>Espaço adm</h5>
             </a>
@@ -222,6 +221,7 @@
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
   <!--  -->
+    <script src="js/frontend.js"></script>
 
 </body>
 
