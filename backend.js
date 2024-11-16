@@ -142,6 +142,28 @@ app.post("/temas-atuais", async (req,res) => {
     res.json(temasAtuais);
 });
 
+app.put("/temas-atuais", async (req, res) => {
+    const idTemaAtual = req.body.idTemaAtual;
+    const titulo = req.body.titulo;
+    const texto = req.body.texto;
+    const imagem = req.body.imagem;
+
+    await TemasAtuais.findByIdAndUpdate(idTemaAtual, {
+        titulo : titulo,
+        texto : texto,
+        imagem : imagem
+    });
+    const temasAtuais = await TemasAtuais.find();
+    res.json(temasAtuais);
+});
+
+app.delete("/temas-atuais", async (req, res) => {
+    const idTemaAtual = req.body.idTemaAtual;
+    await TemasAtuais.findByIdAndDelete(idTemaAtual);
+    const temasAtuais = await TemasAtuais.find();
+    res.json(temasAtuais);
+});
+
 app.listen(3000, () => {
     try {
         conectarAoMongo();

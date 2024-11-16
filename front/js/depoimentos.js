@@ -149,7 +149,7 @@ async function removerDepoimento() {
             ['show', 'alert-success'], ['d-none', 'alert-danger'], 3000, "#modalRemoverDepoimentos");
     }
     catch (e) {
-        exibirAlerta('.alert-modal-editar-depoimentos', "Erro ao remover o depoimento", ['show',
+        exibirAlerta('.alert-modal-remover-depoimentos', "Erro ao remover o depoimento", ['show',
             'alert-danger'], ['d-none', 'alert-success'], 3000);
     }
 }
