@@ -62,7 +62,6 @@ function fazerLogout() {
         botaoLogout.innerText = "Logout";
         botaoLogout.className = "btn btn-primary";
         divLogin.append(botaoLogout);
-        console.log(divLogin);
         botaoLogout.onclick = function() {
             localStorage.removeItem("token");
             divLogin.removeChild(botaoLogout);
@@ -73,7 +72,7 @@ function fazerLogout() {
             linkTexto.textContent = "Espaço adm";
             linkLogin.append(linkTexto);
             divLogin.append(linkLogin);
-            console.log(divLogin);
+            location.reload();
         }
     }
 

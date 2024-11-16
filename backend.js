@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const fs = require('fs');
 
 const app = express();
-app.use(express.json());
+app.use(express.json({limit : "50mb"})); // Evitando payload too large
 app.use(cors());
 
 
@@ -125,7 +125,6 @@ app.delete("/depoimentos", async (req, res) =>{
 
 app.get("/temas-atuais", async (req, res) => {
     const temasAtuais = await TemasAtuais.find();
-    console.log(temasAtuais);
     res.json(temasAtuais);
 });
 
@@ -133,7 +132,6 @@ app.post("/temas-atuais", async (req,res) => {
     const titulo = req.body.titulo;
     const texto = req.body.texto;
     const imagem = req.body.imagem;
-
     const temaAtual = new TemasAtuais({
         titulo : titulo,
         texto : texto,

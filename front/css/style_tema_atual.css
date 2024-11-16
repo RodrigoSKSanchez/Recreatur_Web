@@ -1,0 +1,5 @@
+.imagem-tema-atual {
+    max-width: 350px;
+    height : 280px;
+    object-fit: cover;
+}
