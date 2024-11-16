@@ -17,7 +17,6 @@ function exibirTemasAtuais(temasAtuais) {
         corpoTemasAtuais.removeChild(corpoTemasAtuais.lastChild);
     }
     for (let temaAtual of temasAtuais) {
-        console.log(temaAtual);
         const sectionTemaAtual = document.createElement("section");
         sectionTemaAtual.className = "bg-white col-xl-3 col-md-5 col-sm-12 col border rounded-3";
         const divImagem = document.createElement("div");
