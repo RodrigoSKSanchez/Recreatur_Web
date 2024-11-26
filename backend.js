@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const fs = require('fs');
 
 const app = express();
 app.use(express.json({limit : "50mb"})); // Evitando payload too large
@@ -56,7 +55,7 @@ app.post("/signup", async (req, res) => {
             res.status(201).end();
         }
         else {
-            res.json({mensagem : "Acesso não autorizado"}).end();
+            res.json({mensagem : "Acesso não autorizado"}).status(401).end();
         }
     }
     catch (e) {
@@ -76,14 +75,14 @@ app.post("/login", async (req, res) => {
     // verificar senha e dar continuidade
     const senhaValida = await bcrypt.compare(password, usuarioExiste.password);
     if (!senhaValida) {
-        return res.status(401).json({ mensagem: "senha inválida" });
+        return res.status(401).json({ mensagem: "senha inválida" }).end();
     }
     const token = jwt.sign(
         { login: login },
         process.env.JWT_SECRET,
         { expiresIn: "1h" }
     );
-    res.status(200).json({ token: token });
+    res.status(200).json({ token: token }).end();
 });
 
 app.get("/depoimentos", async (req, res) => {
