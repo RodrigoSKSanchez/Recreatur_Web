@@ -37,7 +37,6 @@ function exibirTemasAtuais(temasAtuais) {
         sectionTemaAtual.append(texto);
         corpoTemasAtuais.append(sectionTemaAtual);
         if (token) {
-            document.querySelector("#adicionarTemaAtual").classList.remove("d-none");
             const divBotoes = document.createElement("div");
             divBotoes.className = "d-flex justify-content-center gap-2 my-2";
             const botaoEditar = document.createElement("button");
@@ -60,6 +59,9 @@ function exibirTemasAtuais(temasAtuais) {
 
             sectionTemaAtual.append(divBotoes);
         }
+    }
+    if (token) {
+        document.querySelector("#adicionarTemaAtual").classList.remove("d-none");
     }
 }
 

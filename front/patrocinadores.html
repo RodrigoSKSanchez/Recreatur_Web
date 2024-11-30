@@ -12,11 +12,84 @@
     crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/style_patrocinadores.css">
 
   <title>Recreatur</title>
 </head>
 
-<body onload="prepararPagina()" class="ubuntu-regular">
+<body onload="obterPatrocinadores()" class="ubuntu-regular">
+  <div class="modal fade" id="modalPatrocinadores" aria-labelledby="modalPatrocinadores" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title">
+            Adicionar Patrocinador
+          </h1>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-dismissible fade d-none alert-modal-patrocinador" role="alert">
+          </div>
+          <div class="mb-3">
+            <label for="imagemPatrocinadorInput" class="col-form-label">Imagem</label>
+            <input type="file" class="form-control" id="imagemPatrocinadorInput"></input>
+          </div>
+          <div class="mb-3">
+            <label for="nomePatrocinadorInput" class="col-form-label">Nome do patrocinador</label>
+            <textarea class="form-control" id="nomePatrocinadorInput"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="descricaoPatrocinadorInput" class="col-form-label">Descrição do patrocinador</label>
+            <textarea class="form-control" id="descricaoPatrocinadorInput"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="adicionarPatrocinador()">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalEditarPatrocinador" aria-labelledby="modalEditarPatrocinador" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title">
+            Editar Tema Atual
+          </h1>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-dismissible fade d-none alert-modal-editar-patrocinador" role="alert">
+          </div>
+          <div class="mb-3">
+            <label for="idPatrocinadorEditarInput" class="col-form-label">ID Patrocinador</label>
+            <input class="form-control" id="idPatrocinadorEditarInput" disabled></input>
+          </div>
+          <div class="mb-3">
+            <p>Imagem Atual</p>
+            <div class="d-flex justify-content-center">
+              <img src="" alt="" id="imagemAtualEditar" class="imagem-tema-atual">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="imagemPatrocinadorEditarInput" class="col-form-label">Inserir nova imagem</label>
+            <input type="file" class="form-control" id="imagemPatrocinadorEditarInput"></input>
+          </div>
+          <div class="mb-3">
+            <label for="nomePatrocinadorEditarInput" class="col-form-label">Nome do Patrocinador</label>
+            <textarea class="form-control" id="nomePatrocinadorEditarInput"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="descricaoPatrocinadorEditarInput" class="col-form-label">Descrição do patrocinador</label>
+            <textarea class="form-control" id="descricaoPatrocinadorEditarInput"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="editarPatrocinador()">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <header class="d-flex container-fluid col-12 justify-content-center sticky-top">
     <nav class="navbar navbar-expand-lg col align-items-center justify-content-center">
       <div class="col row justify-content-center">
@@ -67,20 +140,6 @@
     </section>
 
     <div class="my-5 row mx-1" id="patrocinadores">
-      <section class="d-flex flex-column flex-lg-row col bg-white align-items-center">
-        <img src="imagens/dsm.png" style="width: 540px; height: 304px;">
-        <div class="d-flex flex-column col">
-          <h2>
-            dsm-firmenich
-          </h2>
-          <p>
-            Todos os nossos negócios têm um histórico de inovações pioneiras – e um futuro ainda mais promissor como
-            parte da dsm-firmenich. São todos virtuosos em seus respectivos campos e contam com uma base sólida de
-            excelência científica e tecnológica, um portfólio abrangente de ingredientes e a melhor expertise
-            empresarial do setor.
-          </p>
-        </div>
-      </section>
     </div>
 
     <div class="row justify-content-center my-5">
@@ -202,6 +261,8 @@
 
   <script src="js/frontend.js"></script>
   <script src="js/patrocinadores.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>prepararPagina()</script>
 </body>
 
 </html>

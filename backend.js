@@ -6,20 +6,26 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const app = express();
-app.use(express.json({limit : "50mb"})); // Evitando payload too large
+app.use(express.json({ limit: "50mb" })); // Evitando payload too large
 app.use(cors());
 
 
 const TemasAtuais = mongoose.model("Temas_Atuais", mongoose.Schema({
-    titulo : {type : String},
-    texto : {type : String},
-    imagem : {type : String} // A imagem é armazenada como uma string (base64)
+    titulo: { type: String },
+    texto: { type: String },
+    imagem: { type: String } // A imagem é armazenada como uma string (base64)
 }));
 
 const Depoimento = mongoose.model("Depoimentos", mongoose.Schema({
-    texto_depoimento : {type : String},
-    info_pessoa : {type : String}
-}))
+    texto_depoimento: { type: String },
+    info_pessoa: { type: String }
+}));
+
+const Patrocinador = mongoose.model("Patrocinadores", mongoose.Schema({
+    nome_patrocinador: { type: String },
+    descricao: { type: String },
+    imagem: { type: String }
+}));
 
 const usuarioSchema = mongoose.Schema({
     login: {
@@ -48,14 +54,14 @@ app.post("/signup", async (req, res) => {
         const password = req.body.password;
         const password_criptografada = await bcrypt.hash(password, 10);
         const tokenCadastrar = req.body.token; // Fazendo essa validação para criar um único usuário
-        if(tokenCadastrar && tokenCadastrar == process.env.JWT_SECRET){
+        if (tokenCadastrar && tokenCadastrar == process.env.JWT_SECRET) {
             const usuario = new Usuario({ login: login, password: password_criptografada });
             const respMongo = await usuario.save();
             console.log(respMongo);
             res.status(201).end();
         }
         else {
-            res.json({mensagem : "Acesso não autorizado"}).status(401).end();
+            res.json({ mensagem: "Acesso não autorizado" }).status(401).end();
         }
     }
     catch (e) {
@@ -95,8 +101,8 @@ app.post("/depoimentos", async (req, res) => {
     const infoPessoa = req.body.info_pessoa;
 
     const depoimento = new Depoimento({
-        texto_depoimento : textoDepoimento,
-        info_pessoa : infoPessoa
+        texto_depoimento: textoDepoimento,
+        info_pessoa: infoPessoa
     });
     await depoimento.save();
     const depoimentos = await Depoimento.find();
@@ -108,14 +114,14 @@ app.put("/depoimentos", async (req, res) => {
     const textoDepoimento = req.body.texto_depoimento;
     const infoPessoa = req.body.info_pessoa;
     await Depoimento.findByIdAndUpdate(idDepoimento, {
-        texto_depoimento : textoDepoimento,
-        info_pessoa : infoPessoa
+        texto_depoimento: textoDepoimento,
+        info_pessoa: infoPessoa
     });
     const depoimentos = await Depoimento.find();
     res.json(depoimentos);
 });
 
-app.delete("/depoimentos", async (req, res) =>{
+app.delete("/depoimentos", async (req, res) => {
     const id = req.body.idDepoimento;
     await Depoimento.findByIdAndDelete(id);
     const depoimentos = await Depoimento.find();
@@ -127,14 +133,14 @@ app.get("/temas-atuais", async (req, res) => {
     res.json(temasAtuais);
 });
 
-app.post("/temas-atuais", async (req,res) => {
+app.post("/temas-atuais", async (req, res) => {
     const titulo = req.body.titulo;
     const texto = req.body.texto;
     const imagem = req.body.imagem;
     const temaAtual = new TemasAtuais({
-        titulo : titulo,
-        texto : texto,
-        imagem : imagem
+        titulo: titulo,
+        texto: texto,
+        imagem: imagem
     });
     await temaAtual.save();
     const temasAtuais = await TemasAtuais.find();
@@ -148,9 +154,9 @@ app.put("/temas-atuais", async (req, res) => {
     const imagem = req.body.imagem;
 
     await TemasAtuais.findByIdAndUpdate(idTemaAtual, {
-        titulo : titulo,
-        texto : texto,
-        imagem : imagem
+        titulo: titulo,
+        texto: texto,
+        imagem: imagem
     });
     const temasAtuais = await TemasAtuais.find();
     res.json(temasAtuais);
@@ -161,6 +167,48 @@ app.delete("/temas-atuais", async (req, res) => {
     await TemasAtuais.findByIdAndDelete(idTemaAtual);
     const temasAtuais = await TemasAtuais.find();
     res.json(temasAtuais);
+});
+
+app.get("/patrocinadores", async (req, res) => {
+    const patrocinador = await Patrocinador.find();
+    res.json(patrocinador);
+});
+
+app.post("/patrocinadores", async (req, res) => {
+    const nomePatrocinador = req.body.nome_patrocinador;
+    const descricao = req.body.descricao;
+    const imagem = req.body.imagem;
+
+    const patrocinador = new Patrocinador({
+        nome_patrocinador: nomePatrocinador,
+        descricao: descricao,
+        imagem: imagem
+    });
+    await patrocinador.save();
+    const patrocinadores = await Patrocinador.find();
+    res.json(patrocinadores);
+});
+
+app.put("/patrocinadores", async (req, res) => {
+    const idPatrocinador = req.body.idPatrocinador;
+    const nomePatrocinador = req.body.nome_patrocinador;
+    const descricao = req.body.descricao;
+    const imagem = req.body.imagem;
+
+    await Patrocinador.findByIdAndUpdate(idPatrocinador, {
+        nome_patrocinador: nomePatrocinador,
+        descricao: descricao,
+        imagem: imagem
+    });
+    const patrocinadores = await Patrocinador.find();
+    res.json(patrocinadores);
+});
+
+app.delete("/patrocinadores", async (req, res) => {
+    const idPatrocinador = req.body.idPatrocinador;
+    await Patrocinador.findByIdAndDelete(idPatrocinador);
+    const patrocinadores = await Patrocinador.find();
+    res.json(patrocinadores);
 });
 
 app.listen(3000, () => {
