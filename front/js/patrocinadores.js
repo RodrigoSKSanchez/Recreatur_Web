@@ -19,9 +19,9 @@ function exibirPatrocinadores(patrocinadores) {
   }
   for (let patrocinador of patrocinadores) {
     const sectionPatrocinador = document.createElement("section");
-    sectionPatrocinador.className = "d-flex flex-column flex-lg-row col bg-white align-items-center";
+    sectionPatrocinador.className = "d-flex flex-column flex-lg-row col-12 my-4 bg-white align-items-center";
     const imagem = document.createElement("img");
-    imagem.style = "width: 540px; height: 304px;"
+    imagem.className = "imagem-patrocinador";
     imagem.src = patrocinador.imagem;
     const divTexto = document.createElement("div");
     divTexto.className = "d-flex flex-column col";
@@ -56,7 +56,7 @@ function exibirPatrocinadores(patrocinadores) {
       botaoExcluir.onclick = () => { }
       divBotoes.append(botaoExcluir);
 
-      sectionPatrocinador.append(divBotoes);
+      descricaoPatrocinador.append(divBotoes);
     }
   }
   if (token) {
