@@ -166,7 +166,6 @@ async function editarTemaAtual() {
             };
         }
         else {
-            console.log(document.querySelector("#imagemAtualEditar").src)
             enviarEdicao(idTemaAtual,document.querySelector("#imagemAtualEditar").src, tituloTemaAtual, textoTemaAtual);
         }
     }
