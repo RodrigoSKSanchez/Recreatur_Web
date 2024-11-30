@@ -53,7 +53,7 @@ function exibirPatrocinadores(patrocinadores) {
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
   <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
 </svg>`;
-            botaoExcluir.onclick = () => { }
+            botaoExcluir.onclick = () => abrirModalRemoverPatrocinador(patrocinador._id, patrocinador.imagem, patrocinador.nome_patrocinador, patrocinador.descricao);
             divBotoes.append(botaoExcluir);
 
             descricaoPatrocinador.append(divBotoes);
@@ -130,7 +130,7 @@ async function editarPatrocinador() {
         const URLcompleta = `${protocolo}${baseURL}${patrocinadoresEndPoint}`;
         try {
             const patrocinadores = (await axios.put(URLcompleta, {
-                idPatrocinador : idPatrocinador,
+                idPatrocinador: idPatrocinador,
                 nome_patrocinador: nomePatrocinador,
                 descricao: descricao,
                 imagem: imagem
@@ -156,15 +156,45 @@ async function editarPatrocinador() {
             fileReader.readAsDataURL(imagemPatrocinador);
             fileReader.onload = async () => {
                 const result = fileReader.result;
-                enviarEdicao(idPatrocinador, result, nomePatrocinador,descricaoPatrocinador);
+                enviarEdicao(idPatrocinador, result, nomePatrocinador, descricaoPatrocinador);
             };
         }
         else {
-            enviarEdicao(idPatrocinador,document.querySelector("#imagemAtualEditar").src, nomePatrocinador, descricaoPatrocinador);
+            enviarEdicao(idPatrocinador, document.querySelector("#imagemAtualEditar").src, nomePatrocinador, descricaoPatrocinador);
         }
     }
     else {
         exibirAlerta('.alert-modal-editar-patrocinador', 'Preencha todos os campos', ['show',
             'alert-danger'], ['d-none', 'alert-success'], 3000);
     }
+}
+
+function abrirModalRemoverPatrocinador(idPatrocinador, imagemPatrocinador, nomePatrocinador, descricaoPatrocinador) {
+    document.querySelector("#idPatrocinadorRemoverInput").value = idPatrocinador;
+    document.querySelector("#imagemAtualRemover").src = imagemPatrocinador;
+    document.querySelector("#nomePatrocinadorRemoverInput").value = nomePatrocinador;
+    document.querySelector("#descricaoPatrocinadorRemoverInput").value = descricaoPatrocinador;
+
+    let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById("modalRemoverPatrocinador"));
+    modal.show();
+}
+
+async function removerPatrocinador() {
+    const idPatrocinador = document.querySelector("#idPatrocinadorRemoverInput").value;
+    const patrocinadoresEndPoint = "/patrocinadores";
+    const URLcompleta = `${protocolo}${baseURL}${patrocinadoresEndPoint}`;
+
+    try {
+        const patrocinadores = (await axios.delete(URLcompleta, {
+            data: { idPatrocinador }
+        })).data;
+        exibirPatrocinadores(patrocinadores);
+        exibirAlerta('.alert-modal-remover-patrocinador', "Patrocinador removido com sucesso",
+            ['show', 'alert-success'], ['d-none', 'alert-danger'], 3000, "#modalRemoverPatrocinador");
+    }
+    catch (e) {
+        exibirAlerta('.alert-modal-remover-patrocinador', "Erro ao remover o patrocinador", ['show',
+            'alert-danger'], ['d-none', 'alert-success'], 3000);
+    }
+
 }

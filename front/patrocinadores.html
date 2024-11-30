@@ -23,7 +23,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title">
-            Adicionar Patrocinador
+            Adicionar patrocinador
           </h1>
         </div>
         <div class="modal-body">
@@ -54,18 +54,18 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title">
-            Editar Tema Atual
+            Editar patrocinador
           </h1>
         </div>
         <div class="modal-body">
           <div class="alert alert-dismissible fade d-none alert-modal-editar-patrocinador" role="alert">
           </div>
           <div class="mb-3">
-            <label for="idPatrocinadorEditarInput" class="col-form-label">ID Patrocinador</label>
+            <label for="idPatrocinadorEditarInput" class="col-form-label">ID patrocinador</label>
             <input class="form-control" id="idPatrocinadorEditarInput" disabled></input>
           </div>
           <div class="mb-3">
-            <p>Imagem Atual</p>
+            <p>Imagem atual</p>
             <div class="d-flex justify-content-center">
               <img src="" alt="" id="imagemAtualEditar" class="imagem-patrocinador">
             </div>
@@ -75,7 +75,7 @@
             <input type="file" class="form-control" id="imagemPatrocinadorEditarInput"></input>
           </div>
           <div class="mb-3">
-            <label for="nomePatrocinadorEditarInput" class="col-form-label">Nome do Patrocinador</label>
+            <label for="nomePatrocinadorEditarInput" class="col-form-label">Nome do patrocinador</label>
             <textarea class="form-control" id="nomePatrocinadorEditarInput"></textarea>
           </div>
           <div class="mb-3">
@@ -90,6 +90,47 @@
       </div>
     </div>
   </div>
+  <div class="modal fade" id="modalRemoverPatrocinador" aria-labelledby="modalRemoverPatrocinador" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title">
+            Remover Patrocinador
+          </h1>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-dismissible fade d-none alert-modal-remover-patrocinador" role="alert">
+          </div>
+          <div class="mb-3">
+            <label for="idPatrocinadorRemoverInput" class="col-form-label">ID patrocinador</label>
+            <input class="form-control" id="idPatrocinadorRemoverInput" disabled></input>
+          </div>
+          <div class="mb-3">
+            <p>Imagem Atual</p>
+            <div class="d-flex justify-content-center">
+              <img src="" alt="" id="imagemAtualRemover" class="imagem-patrocinador">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="nomePatrocinadorRemoverInput" class="col-form-label">Nome do patrocinador</label>
+            <textarea class="form-control" id="nomePatrocinadorRemoverInput" disabled></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="descricaoPatrocinadorRemoverInput" class="col-form-label">Descrição do patrocinador</label>
+            <textarea class="form-control" id="descricaoPatrocinadorRemoverInput" disabled></textarea>
+          </div>
+          <div class="mb-3">
+            <h4>Deseja realmente remover o patrocinador?</h4>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="removerPatrocinador()">Remover</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <header class="d-flex container-fluid col-12 justify-content-center sticky-top">
     <nav class="navbar navbar-expand-lg col align-items-center justify-content-center">
       <div class="col row justify-content-center">
@@ -127,7 +168,8 @@
           esperança e oportunidades a quem mais precisa. Juntos, estamos fazendo a diferença!
         </p>
       </div>
-      <div class="d-flex justify-content-center bg-white align-items-center gap-2 mt-3 d-none" id="adicionarPatrocinador">
+      <div class="d-flex justify-content-center bg-white align-items-center gap-2 mt-3 d-none"
+        id="adicionarPatrocinador">
         <h4>Adicionar novo patrocinador</h4>
         <button class="btn bg-primary" data-bs-toggle="modal" data-bs-target="#modalPatrocinadores">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-plus-square-fill"
