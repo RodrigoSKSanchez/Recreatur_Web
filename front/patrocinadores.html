@@ -130,6 +130,80 @@
       </div>
     </div>
   </div>
+  <div class="modal fade" id="modalVerMensagens" aria-labelledby="modalVerMensagens" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title">
+            Mensagem
+          </h1>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="nomeVerMensagem" class="col-form-label">Nome</label>
+            <textarea class="form-control" id="nomeVerMensagem" disabled></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="sobrenomeVerMensagem" class="col-form-label">Sobrenome</label>
+            <textarea class="form-control" id="sobrenomeVerMensagem" disabled></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="emailVerMensagem" class="col-form-label">Email</label>
+            <textarea class="form-control" id="emailVerMensagem" disabled></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="mensagemVerMensagem" class="col-form-label">Mensagem</label>
+            <textarea class="form-control overflow-auto" id="mensagemVerMensagem" disabled></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalRemoverMensagens" aria-labelledby="modalRemoverMensagens" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title">
+            Mensagem
+          </h1>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-dismissible fade d-none alert-modal-remover-mensagem" role="alert">
+          </div>
+          <div class="mb-3">
+            <label for="idMensagemRemoverMensagem" class="col-form-label">ID mensagem</label>
+            <input class="form-control" id="idMensagemRemoverMensagem" disabled></input>
+          </div>
+          <div class="mb-3">
+            <label for="nomeRemoverMensagem" class="col-form-label">Nome</label>
+            <textarea class="form-control" id="nomeRemoverMensagem" disabled></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="sobrenomeRemoverMensagem" class="col-form-label">Sobrenome</label>
+            <textarea class="form-control" id="sobrenomeRemoverMensagem" disabled></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="emailRemoverMensagem" class="col-form-label">Email</label>
+            <textarea class="form-control" id="emailRemoverMensagem" disabled></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="mensagemRemoverMensagem" class="col-form-label">Mensagem</label>
+            <textarea class="form-control overflow-auto" id="mensagemRemoverMensagem" disabled></textarea>
+          </div>
+          <div class="mb-3">
+            <h4>Deseja realmente remover a mensagem?</h4>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" onclick="removerMensagem()">Remover</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <header class="d-flex container-fluid col-12 justify-content-center sticky-top">
     <nav class="navbar navbar-expand-lg col align-items-center justify-content-center">
@@ -194,8 +268,10 @@
       </div>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" id="enviar-mensagem">
       <form class="col-10 bg-white border rounded-4 p-4">
+        <div class="alert alert-dismissible fade d-none alert-enviar-mensagem" role="alert">
+        </div>
         <div class="mb-3">
           <label for="nomeInput" class="form-label">Nome</label>
           <input type="text" id="nomeInput" class="form-control">
@@ -213,10 +289,18 @@
           <textarea type="text" id="mensagemInput" class="form-control"></textarea>
         </div>
         <div>
-          <button class="btn btn-primary" style="width: 100%;">Enviar</button>
+          <button type="button" class="btn btn-primary" style="width: 100%;" onclick="enviarMensagem()">Enviar</button>
         </div>
       </form>
     </div>
+
+    <div class="d-none row justify-content-center" id="ver-mensagens">
+      <div class="col-10 bg-white border rounded-4 p-4">
+        <h2 class="text-center text-decoration-underline">Mensagens</h2>
+        <div id="mensagens"></div>
+      </div>
+    </div>
+
   </main>
 
   <footer class="container-fluid">
@@ -304,7 +388,10 @@
   <script src="js/frontend.js"></script>
   <script src="js/patrocinadores.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script>prepararPagina()</script>
+  <script>
+    prepararPagina()
+    prepararFormulario()
+  </script>
 </body>
 
 </html>

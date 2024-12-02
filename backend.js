@@ -27,6 +27,13 @@ const Patrocinador = mongoose.model("Patrocinadores", mongoose.Schema({
     imagem: { type: String }
 }));
 
+const MensagemPatrocinador = mongoose.model("MensagemPatrocinador", mongoose.Schema({
+    nome : {type : String},
+    sobrenome : {type : String},
+    email : {type : String},
+    mensagem : {type : String}
+}));
+
 const usuarioSchema = mongoose.Schema({
     login: {
         type: String,
@@ -209,6 +216,36 @@ app.delete("/patrocinadores", async (req, res) => {
     await Patrocinador.findByIdAndDelete(idPatrocinador);
     const patrocinadores = await Patrocinador.find();
     res.json(patrocinadores);
+});
+
+app.get("/mensagem-patrocinadores", async (req, res) => {
+    const mensagens = await MensagemPatrocinador.find();
+    res.json(mensagens);
+});
+
+app.post("/mensagem-patrocinadores", async (req, res) => {
+    const nome = req.body.nome;
+    const sobrenome = req.body.sobrenome;
+    const email = req.body.email;
+    const mensagem = req.body.mensagem;
+
+    const mensagemPatrocinador = new MensagemPatrocinador({
+        nome : nome,
+        sobrenome : sobrenome,
+        email : email,
+        mensagem : mensagem
+    });
+
+    await mensagemPatrocinador.save();
+    const mensagens = await MensagemPatrocinador.find();
+    res.json(mensagens);
+});
+
+app.delete("/mensagem-patrocinadores", async (req, res) => {
+    const idMensagem = req.body.idMensagem;
+    await MensagemPatrocinador.findByIdAndDelete(idMensagem);
+    const mensagens = await MensagemPatrocinador.find();
+    res.json(mensagens);
 });
 
 app.listen(3000, () => {
