@@ -62,6 +62,10 @@
 
 }
 
+header {
+    background-color: rgba(13, 110, 253, 1);
+}
+
 footer {
     background-image: url("../imagens/fundof.png");
     color: white;

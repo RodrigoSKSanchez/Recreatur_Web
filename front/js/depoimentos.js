@@ -25,7 +25,6 @@ function exibirDepoimentos(depoimentos) {
 
 
         if (token) {
-            document.querySelector("#adicionarDepoimento").classList.remove("d-none");
             const divBotoes = document.createElement("div");
             divBotoes.className = "d-flex justify-content-center gap-2";
             const botaoEditar = document.createElement("button");
@@ -48,6 +47,9 @@ function exibirDepoimentos(depoimentos) {
 
             divDepoimento.append(divBotoes);
         }
+    }
+    if (token) {
+        document.querySelector("#adicionarDepoimento").classList.remove("d-none");
     }
 }
 
