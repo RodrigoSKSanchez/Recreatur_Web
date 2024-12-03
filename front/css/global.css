@@ -67,7 +67,8 @@ header {
 }
 
 footer {
-    background-image: url("../imagens/fundof.png");
-    color: white;
+    background-image: url("../imagens/footer.png");
+    background-position: 10%;
+    color: #1E1E1E;
 
 }
