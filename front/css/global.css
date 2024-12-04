@@ -63,11 +63,12 @@
 }
 
 header {
-    background-color: rgba(13, 110, 253, 1);
+    background-color: rgba(103, 135, 231, 1);
 }
 
 footer {
-    background-image: url("../imagens/fundof.png");
-    color: white;
+    background-image: url("../imagens/footer.png");
+    background-position: 10%;
+    color: #1E1E1E;
 
 }

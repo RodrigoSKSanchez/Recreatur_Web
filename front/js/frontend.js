@@ -91,26 +91,26 @@ function mudarHeader() {
 
     const localTexto = header.querySelector("nav>div");
     
-    const texto = header.querySelector(".pl-4");
+    const texto = header.querySelector("#texto-logo");
     
     
     //mudando a opacidade do header, caso não esteja no começo da página ao carregar
     if(Math.abs(body.getBoundingClientRect().y) > headerHeight) {
-        header.style.backgroundColor = "rgba(13, 110, 253, 0.5)";
+        header.style.backgroundColor = "rgba(103, 135, 231, 0.5)";
         navbar.classList.remove("navbar-expanded-lg");
         localTexto.removeChild(texto);
     }
     document.onscroll = (() => {
         let headerHeight = header.getBoundingClientRect().height;
         if(Math.abs(body.getBoundingClientRect().y) > headerHeight){
-            header.style.backgroundColor = "rgba(13, 110, 253, 0.5)";
+            header.style.backgroundColor = "rgba(103, 135, 231, 0.5)";
             navbar.classList.remove("navbar-expand-lg");
             if(localTexto.lastChild == texto){
                 localTexto.removeChild(texto);
             }
         }
         else{
-            header.style.backgroundColor = "rgba(13, 110, 253, 1)";
+            header.style.backgroundColor = "rgba(103, 135, 231, 1)";
             navbar.classList.add("navbar-expand-lg");
             if(localTexto.lastChild != texto){
                 localTexto.append(texto);

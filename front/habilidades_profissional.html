@@ -9,14 +9,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/style_habilidades.css">
 </head>
 
 <body class="ubuntu-regular">
   <header class="d-flex container-fluid col-12 justify-content-center sticky-top">
     <nav class="navbar navbar-expand-lg col align-items-center justify-content-center">
-      <div class="col row justify-content-center">
-        <img src="imagens/icon.png" alt="Logo Passatempo Educativo" class="logo">
-        <div class="d-flex flex-column align-items-center text-danger lh-1 fw-semibold justify-content-center pl-4">
+      <div class="col d-flex flex-column align-items-center">
+        <img src="imagens/icon.png" alt="Logo Passatempo Educativo" class="logo px-1">
+        <div class="d-flex flex-column align-items-center text-danger lh-1 fw-semibold justify-content-center pl-4" id="texto-logo">
           <p class="mb-auto fs-2">Passatempo</p>
           <p class="fs-4">Educativo</p>
         </div>
@@ -27,12 +28,12 @@
       </button>
       <div class="collapse navbar-collapse" id="myNav">
         <div class="navbar-nav ms-auto">
-          <a href="home_page.html" class="botoes_header nav-link rounded-3 p-1">Home</a>
-          <a href="habilidades_profissional.html" class="selecionado botoes_header nav-link rounded-3  p-1">Habilidades
-            do
+          <a href="home_page.html" class="botoes_header nav-link rounded-3 p-1">Recreatur</a>
+          <a href="habilidades_profissional.html" class="selecionado botoes_header nav-link rounded-3  p-1">Habilidades do
             Futuro</a>
           <a href="temas_atuais.html" class="botoes_header nav-link rounded-3 p-1">Temas Atuais</a>
           <a href="depoimentos.html" class="botoes_header nav-link rounded-3  p-1">Depoimentos</a>
+          <a href="patrocinadores.html" class="botoes_header nav-link rounded-3  p-1">Patrocinadores</a>
           <a href="nos_apoie.html" class="nav-link botao_apoie rounded-3 py-1 px-4">Nos apoie </a>
         </div>
       </div>
@@ -42,7 +43,8 @@
     <div class="fundo"></div>
     <section class="row justify-content-center">
       <div class="row justify-content-center bg-white col-10 border rounded-4">
-        <h1 class="col-12 mt-3 text-center text-danger luckiest-guy-regular ">As Habilidades Do Profissional do Futuro</h1>
+        <h1 class="col-12 mt-3 text-center text-danger luckiest-guy-regular ">As Habilidades Do Profissional do Futuro
+        </h1>
         <p class="col-9 mt-3 text-center fs-5">A formação visa a preparação integral dos jovens para a vida, fomentando
           o
           seu desenvolvimento de maneira abrangente. Além de cultivar as competências intelectuais, o programa
@@ -56,103 +58,151 @@
     </section>
 
     <div class="row justify-content-evenly mt-5 row-gap-5">
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Pensamento Crítico</h3>
-        <p class="text-center">A capacidade de encontrar dados confiáveis ​​e usá-los para tomar decisões</p>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Pensamento_critico.png" alt=""
+          class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Pensamento Crítico</h3>
+          <p class="text-center">A capacidade de encontrar dados confiáveis ​​e usá-los para tomar decisões</p>
+        </div>
       </section>
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Julgamento e tomadas de decisão complexas</h3>
-        <p class="text-center">Compreender o impacto mais amplo das decisões</p>
-      </section>
-    </div>
-    <div class="row justify-content-evenly mt-5 row-gap-5">
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Inteligência emocional e empatia</h3>
-        <p class="text-center">A capacidade de estar ciente e em controle das suas emoções e das emoções dos outros</p>
-      </section>
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Criatividade</h3>
-        <p class="text-center">A capacidade de imaginar, sonhar e gerar novas ideias</p>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Julgamento_e_tomadas_de_decisao_complexas.png" alt=""
+          class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Julgamento e tomadas de decisão complexas</h3>
+          <p class="text-center">Compreender o impacto mais amplo das decisões</p>
+        </div>
       </section>
     </div>
     <div class="row justify-content-evenly mt-5 row-gap-5">
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Colaboração e trabalho em equipe</h3>
-        <p class="text-center">Integrar e trabalhar bem com os outros</p>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Inteligencia_emocional_e_empatia.png" alt=""
+          class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Inteligência emocional e empatia</h3>
+          <p class="text-center">A capacidade de estar ciente e em controle das suas emoções e das emoções dos outros
+          </p>
+        </div>
       </section>
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Habilidades de comunicação interpessoal</h3>
-        <p class="text-center">Ser capaz de ouvir, entender e transmitir suas ideias</p>
-      </section>
-    </div>
-    <div class="row justify-content-evenly mt-5 row-gap-5">
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Incorporação das mudanças</h3>
-        <p class="text-center">Ser capaz de aceitar e gerenciar mudanças à medida que elas surgem no local de trabalho
-        </p>
-      </section>
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Trabalho flexível</h3>
-        <p class="text-center">Navegar na gig economy (o ambiente de trabalho flexível do futuro)</p>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Criatividade.png" alt="" class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Criatividade</h3>
+          <p class="text-center">A capacidade de imaginar, sonhar e gerar novas ideias</p>
+        </div>
       </section>
     </div>
     <div class="row justify-content-evenly mt-5 row-gap-5">
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Adaptabilidade e flexibilidade</h3>
-        <p class="text-center">Ter uma mentalidade adaptável e estar aberto a mudanças no local de trabalho</p>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Colaboracao_e_trabalho_em_equipe.png" alt=""
+          class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Colaboração e trabalho em equipe</h3>
+          <p class="text-center">Integrar e trabalhar bem com os outros</p>
+        </div>
       </section>
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Inteligência cultural e consciência de diversidade</h3>
-        <p class="text-center">Ter consciência da diversidade e do fato de que os locais de trabalho estão se tornando
-          mais diversos, e ser capaz de se relacionar com os outros e trabalhar efetivamente com pessoas de diferentes
-          origens e experiências
-        </p>
-      </section>
-    </div>
-    <div class="row justify-content-evenly mt-5 row-gap-5">
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Consciência ética</h3>
-        <p class="text-center">Compreender as implicações éticas do trabalho e da tecnologia em clientes, funcionários e
-          outras partes interessadas (incluindo o meio ambiente)</p>
-      </section>
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Liderança</h3>
-        <p class="text-center">Se destacar em grupos de liderança (no topo de uma organização e em toda a empresa)</p>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Habilidades_de_comunicacao_interpessoal.png" alt="" class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Habilidades de comunicação interpessoal</h3>
+          <p class="text-center">Ser capaz de ouvir, entender e transmitir suas ideias</p>
+        </div>
       </section>
     </div>
     <div class="row justify-content-evenly mt-5 row-gap-5">
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Gerenciamento de marca pessoal e networking</h3>
-        <p class="text-center">Construir relacionamentos, aumentando sua rede e mantendo sua reputação online e offline
-        </p>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/trabalho_flexivel.png" alt="" class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Trabalho flexível</h3>
+          <p class="text-center">Navegar na gig economy (o ambiente de trabalho flexível do futuro)</p>
+        </div>
       </section>
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Cuidado consigo mesmo</h3>
-        <p class="text-center">Encontrar o equilíbrio entre vida profissional e pessoal e cuidar da sua saúde física e
-          mental</p>
-      </section>
-    </div>
-    <div class="row justify-content-evenly mt-5 row-gap-5">
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Gestão do Tempo</h3>
-        <p class="text-center">Tornar-se mais eficaz e eficiente na forma como trabalha</p>
-      </section>
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Curiosidade e aprendizado contínuo</h3>
-        <p class="text-center">Manter uma mentalidade de crescimento e garantir que continuemos a aprender e crescer,
-          pessoal e profissionalmente</p>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Adaptabilidade_e_flexibilidade.png" alt=""
+          class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Adaptabilidade e flexibilidade</h3>
+          <p class="text-center">Ter uma mentalidade adaptável e estar aberto a mudanças no local de trabalho</p>
+        </div>
       </section>
     </div>
     <div class="row justify-content-evenly mt-5 row-gap-5">
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Incorporação das mudanças</h3>
-        <p class="text-center">Ser capaz de aceitar e gerenciar mudanças à medida que elas surgem no local de trabalho
-        </p>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Inteligencia_cultural_e_consciencia_de_diversidade.png"
+          alt="" class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Inteligência cultural e consciência de diversidade</h3>
+          <p class="text-center">Ter consciência da diversidade e do fato de que os locais de trabalho estão se tornando
+            mais diversos, e ser capaz de se relacionar com os outros e trabalhar efetivamente com pessoas de diferentes
+            origens e experiências
+          </p>
+        </div>
       </section>
-      <section class="col-md-4 col-12 border rounded-3 bg-light">
-        <h3 class="text-center">Cuidado consigo mesmo</h3>
-        <p class="text-center">Encontrar o equilíbrio entre vida profissional e pessoal e cuidar da sua saúde física e
-          mental</p>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Consciencia_etica.png" alt="" class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Consciência ética</h3>
+          <p class="text-center">Compreender as implicações éticas do trabalho e da tecnologia em clientes, funcionários
+            e
+            outras partes interessadas (incluindo o meio ambiente)</p>
+        </div>
+      </section>
+    </div>
+    <div class="row justify-content-evenly mt-5 row-gap-5">
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Lideranca_Se_destacar_em_grupos_de_lideranca.png" alt=""
+          class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Liderança</h3>
+          <p class="text-center">Se destacar em grupos de liderança (no topo de uma organização e em toda a empresa)</p>
+        </div>
+      </section>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Gerenciamento_de_marca_pessoal_e_networking.png" alt=""
+          class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Gerenciamento de marca pessoal e networking</h3>
+          <p class="text-center">Construir relacionamentos, aumentando sua rede e mantendo sua reputação online e
+            offline
+          </p>
+        </div>
+      </section>
+    </div>
+    <div class="row justify-content-evenly mt-5 row-gap-5">
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Gestao_do_Tempo.png" alt="" class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Gestão do Tempo</h3>
+          <p class="text-center">Tornar-se mais eficaz e eficiente na forma como trabalha</p>
+        </div>
+      </section>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Curiosidade_e_aprendizado_continuo.png" alt=""
+          class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Curiosidade e aprendizado contínuo</h3>
+          <p class="text-center">Manter uma mentalidade de crescimento e garantir que continuemos a aprender e crescer,
+            pessoal e profissionalmente</p>
+        </div>
+      </section>
+    </div>
+    <div class="row justify-content-evenly mt-5 row-gap-5">
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Incorporacao_das_mudancas.png" alt="" class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Incorporação das mudanças</h3>
+          <p class="text-center">Ser capaz de aceitar e gerenciar mudanças à medida que elas surgem no local de trabalho
+          </p>
+        </div>
+      </section>
+      <section class="d-flex flex-column flex-xl-row align-items-center col-md-4 col-12 border rounded-3 bg-light">
+        <img src="/front/imagens/habilidades_profissionais/Cuidado_consigo_mesmo.png" alt="" class="imagem-habilidades mt-3">
+        <div>
+          <h3 class="text-center">Cuidado consigo mesmo</h3>
+          <p class="text-center">Encontrar o equilíbrio entre vida profissional e pessoal e cuidar da sua saúde física e
+            mental</p>
+        </div>
       </section>
     </div>
   </main>
@@ -164,18 +214,14 @@
           <h6>Redes sociais</h6>
           <div class="d-flex gap-4 justify-content-center">
             <a href="https://www.instagram.com/passatempoeducativo/?hl=pt-br" class="icons">
-
               <img src="imagens/instagram.png">
-
             </a>
 
             <a href="https://pt-br.facebook.com/Passatempoedu?ref=stream&hc_location=stream&filter=2" class="icons">
               <img src="imagens/facebook.png">
             </a>
 
-            <a href="" class="icons">
-              <img src="imagens/whatsapp.png">
-            </a>
+            
           </div>
 
           <div class="p-5" id="divLogin">
