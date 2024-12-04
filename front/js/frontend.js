@@ -60,7 +60,7 @@ function fazerLogout() {
         }
         let botaoLogout = document.createElement("button");
         botaoLogout.innerText = "Logout";
-        botaoLogout.className = "btn btn-primary";
+        botaoLogout.className = "btn btn-danger";
         divLogin.append(botaoLogout);
         botaoLogout.onclick = function() {
             localStorage.removeItem("token");
