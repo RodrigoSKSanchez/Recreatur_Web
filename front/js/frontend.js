@@ -38,6 +38,9 @@ async function fazerLogin() {
             passwordLoginInput.value = ""
             exibirAlerta('.alert-modal-login', "Login efetuado com sucesso!",
                 ['show', 'alert-success'], ['d-none', 'alert-danger'], 2000)
+                setTimeout(() => {
+                    history.back();
+                }, 2000);
             
         }
         catch (error) {
