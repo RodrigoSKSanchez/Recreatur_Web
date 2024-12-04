@@ -32,7 +32,7 @@ async function fazerLogin() {
                 URLCompleta,
                 { login: usuarioLogin, password: passwordLogin }
             )
-            localStorage.setItem("token", response.data);
+            localStorage.setItem("token", response.data.token);
             fazerLogout();
             usuarioLoginInput.value = ""
             passwordLoginInput.value = ""
