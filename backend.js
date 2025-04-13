@@ -55,6 +55,34 @@ async function conectarAoMongo() {
     await mongoose.connect(process.env.DATABASE_URL);
 }
 
+
+// função responsável por validar o Token do Request
+function validarToken(req, res, next){
+    let token = req.headers.authorization;
+    if(!token){
+        next('router');
+    }
+    else{
+        token = token.split(' ')[1];
+    }
+    jwt.verify(token, process.env.JWT_SECRET, function(err, decoded){
+        if(err){
+            switch(err.name){
+                case "TokenExpiredError":
+                    break;
+                case "JsonWebTokenError":
+                    break;
+                case "NotBeforeError":
+                    break;
+            }
+            next('router');
+        }
+        else{
+            next();
+        }
+    });
+}
+
 app.post("/signup", async (req, res) => {
     try {
         const login = req.body.login;
@@ -93,7 +121,7 @@ app.post("/login", async (req, res) => {
     const token = jwt.sign(
         { login: login },
         process.env.JWT_SECRET,
-        { expiresIn: "1h" }
+        { expiresIn: "7 days" }
     );
     res.status(200).json({ token: token }).end();
 });
@@ -103,7 +131,7 @@ app.get("/depoimentos", async (req, res) => {
     res.json(depoimentos);
 });
 
-app.post("/depoimentos", async (req, res) => {
+app.post("/depoimentos", async (req,res,next) => validarToken(req, res, next), async (req, res) => {
     const textoDepoimento = req.body.texto_depoimento;
     const infoPessoa = req.body.info_pessoa;
 
@@ -116,7 +144,7 @@ app.post("/depoimentos", async (req, res) => {
     res.json(depoimentos);
 });
 
-app.put("/depoimentos", async (req, res) => {
+app.put("/depoimentos",(req,res,next) => validarToken(req, res, next), async (req, res) => {
     const idDepoimento = req.body.idDepoimento;
     const textoDepoimento = req.body.texto_depoimento;
     const infoPessoa = req.body.info_pessoa;
@@ -128,7 +156,7 @@ app.put("/depoimentos", async (req, res) => {
     res.json(depoimentos);
 });
 
-app.delete("/depoimentos", async (req, res) => {
+app.delete("/depoimentos",(req,res,next) => validarToken(req, res, next), async (req, res) => {
     const id = req.body.idDepoimento;
     await Depoimento.findByIdAndDelete(id);
     const depoimentos = await Depoimento.find();
@@ -140,7 +168,7 @@ app.get("/temas-atuais", async (req, res) => {
     res.json(temasAtuais);
 });
 
-app.post("/temas-atuais", async (req, res) => {
+app.post("/temas-atuais",(req,res,next) => validarToken(req, res, next), async (req, res) => {
     const titulo = req.body.titulo;
     const texto = req.body.texto;
     const imagem = req.body.imagem;
@@ -154,7 +182,7 @@ app.post("/temas-atuais", async (req, res) => {
     res.json(temasAtuais);
 });
 
-app.put("/temas-atuais", async (req, res) => {
+app.put("/temas-atuais",(req,res,next) => validarToken(req, res, next), async (req, res) => {
     const idTemaAtual = req.body.idTemaAtual;
     const titulo = req.body.titulo;
     const texto = req.body.texto;
@@ -169,7 +197,7 @@ app.put("/temas-atuais", async (req, res) => {
     res.json(temasAtuais);
 });
 
-app.delete("/temas-atuais", async (req, res) => {
+app.delete("/temas-atuais",(req,res,next) => validarToken(req, res, next), async (req, res) => {
     const idTemaAtual = req.body.idTemaAtual;
     await TemasAtuais.findByIdAndDelete(idTemaAtual);
     const temasAtuais = await TemasAtuais.find();
@@ -181,7 +209,7 @@ app.get("/patrocinadores", async (req, res) => {
     res.json(patrocinador);
 });
 
-app.post("/patrocinadores", async (req, res) => {
+app.post("/patrocinadores",(req,res,next) => validarToken(req, res, next), async (req, res) => {
     const nomePatrocinador = req.body.nome_patrocinador;
     const descricao = req.body.descricao;
     const imagem = req.body.imagem;
@@ -196,7 +224,7 @@ app.post("/patrocinadores", async (req, res) => {
     res.json(patrocinadores);
 });
 
-app.put("/patrocinadores", async (req, res) => {
+app.put("/patrocinadores",(req,res,next) => validarToken(req, res, next), async (req, res) => {
     const idPatrocinador = req.body.idPatrocinador;
     const nomePatrocinador = req.body.nome_patrocinador;
     const descricao = req.body.descricao;
@@ -211,7 +239,7 @@ app.put("/patrocinadores", async (req, res) => {
     res.json(patrocinadores);
 });
 
-app.delete("/patrocinadores", async (req, res) => {
+app.delete("/patrocinadores",(req,res,next) => validarToken(req, res, next), async (req, res) => {
     const idPatrocinador = req.body.idPatrocinador;
     await Patrocinador.findByIdAndDelete(idPatrocinador);
     const patrocinadores = await Patrocinador.find();
@@ -241,7 +269,7 @@ app.post("/mensagem-patrocinadores", async (req, res) => {
     res.json(mensagens);
 });
 
-app.delete("/mensagem-patrocinadores", async (req, res) => {
+app.delete("/mensagem-patrocinadores",(req,res,next) => validarToken(req, res, next), async (req, res) => {
     const idMensagem = req.body.idMensagem;
     await MensagemPatrocinador.findByIdAndDelete(idMensagem);
     const mensagens = await MensagemPatrocinador.find();
@@ -252,7 +280,6 @@ app.listen(3000, () => {
     try {
         conectarAoMongo();
         console.log("server up & running & connection ok");
-        console.log(process.env.JWT_SECRET)
     }
     catch (e) {
         console.log("erro de conexão", e);
