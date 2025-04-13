@@ -32,13 +32,14 @@ async function fazerLogin() {
                 URLCompleta,
                 { login: usuarioLogin, password: passwordLogin }
             )
-            localStorage.setItem("token", response.data);
+            localStorage.setItem("token", response.data.token);
+            prepararAxios();
             fazerLogout();
             usuarioLoginInput.value = ""
             passwordLoginInput.value = ""
             exibirAlerta('.alert-modal-login', "Login efetuado com sucesso!",
-                ['show', 'alert-success'], ['d-none', 'alert-danger'], 2000)
-            
+                ['show', 'alert-success'], ['d-none', 'alert-danger'], 1000);
+            setTimeout(() => history.back(), 1000);
         }
         catch (error) {
             exibirAlerta('.alert-modal-login', "Erro ao fazer login", ['show',
@@ -83,6 +84,16 @@ function prepararPagina() {
     mudarHeader();
 }
 
+function prepararAxios(){
+    const token = localStorage.getItem("token");
+    if(!token){
+        return;
+    }
+    axios.defaults.headers.post["Authorization"] = `Bearer ${token}`;
+    axios.defaults.headers.put["Authorization"] = `Bearer ${token}`;
+    axios.defaults.headers.delete["Authorization"] = `Bearer ${token}`;
+}
+
 function mudarHeader() {
     const header = document.querySelector("header");
     const body = document.querySelector("body");
@@ -90,10 +101,10 @@ function mudarHeader() {
     const navbar = header.querySelector("nav");
 
     const localTexto = header.querySelector("nav>div");
-    
+
     const texto = header.querySelector("#texto-logo");
-    
-    
+
+
     //mudando a opacidade do header, caso não esteja no começo da página ao carregar
     if(Math.abs(body.getBoundingClientRect().y) > headerHeight) {
         header.style.backgroundColor = "rgba(103, 135, 231, 0.5)";
