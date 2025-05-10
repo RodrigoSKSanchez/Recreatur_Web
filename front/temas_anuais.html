@@ -4,124 +4,124 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Temas Atuais</title>
+  <title>Temas Anuais</title>
   <link rel="icon" href="imagens/icon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/style_tema_atual.css">
+  <link rel="stylesheet" href="css/style_tema_anual.css">
 </head>
 
-<body onload="obterTemasAtuais()" class="ubuntu-regular">
-  <div class="modal fade" id="modalTemasAtuais" aria-labelledby="modalTemasAtuais" aria-hidden="true">
+<body onload="obterTemasAnuais()" class="ubuntu-regular">
+  <div class="modal fade" id="modalTemasAnuais" aria-labelledby="modalTemasAnuais" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title">
-            Adicionar Tema atual
+            Adicionar Tema anual
           </h1>
         </div>
         <div class="modal-body">
-          <div class="alert alert-dismissible fade d-none alert-modal-tema-atual" role="alert">
+          <div class="alert alert-dismissible fade d-none alert-modal-tema-anual" role="alert">
           </div>
           <div class="mb-3">
-            <label for="imagemTemaAtualInput" class="col-form-label">Imagem</label>
-            <input type="file" class="form-control" id="imagemTemaAtualInput"></input>
+            <label for="imagemTemaAnualInput" class="col-form-label">Imagem</label>
+            <input type="file" class="form-control" id="imagemTemaAnualInput"></input>
           </div>
           <div class="mb-3">
-            <label for="tituloTemaAtualInput" class="col-form-label">Título</label>
-            <textarea class="form-control" id="tituloTemaAtualInput"></textarea>
+            <label for="tituloTemaAnualInput" class="col-form-label">Título</label>
+            <textarea class="form-control" id="tituloTemaAnualInput"></textarea>
           </div>
           <div class="mb-3">
-            <label for="textoTemaAtualInput" class="col-form-label">Texto</label>
-            <textarea class="form-control" id="textoTemaAtualInput"></textarea>
+            <label for="textoTemaAnualInput" class="col-form-label">Texto</label>
+            <textarea class="form-control" id="textoTemaAnualInput"></textarea>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" onclick="adicionarTemaAtual()">Adicionar</button>
+          <button type="button" class="btn btn-primary" onclick="adicionarTemaAnual()">Adicionar</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="modalEditarTemasAtuais" aria-labelledby="modalEditarTemasAtuais" aria-hidden="true">
+  <div class="modal fade" id="modalEditarTemasAnuais" aria-labelledby="modalEditarTemasAnuais" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title">
-            Editar Tema Atual
+            Editar Tema Anual
           </h1>
         </div>
         <div class="modal-body">
-          <div class="alert alert-dismissible fade d-none alert-modal-editar-tema-atual" role="alert">
+          <div class="alert alert-dismissible fade d-none alert-modal-editar-tema-anual" role="alert">
           </div>
           <div class="mb-3">
-            <label for="idTemaAtualEditarInput" class="col-form-label">ID Tema Atual</label>
-            <input class="form-control" id="idTemaAtualEditarInput" disabled></input>
+            <label for="idTemaAnualEditarInput" class="col-form-label">ID Tema Anual</label>
+            <input class="form-control" id="idTemaAnualEditarInput" disabled></input>
           </div>
           <div class="mb-3">
-            <p>Imagem Atual</p>
+            <p>Imagem Anual</p>
             <div class="d-flex justify-content-center">
-              <img src="" alt="" id="imagemAtualEditar" class="imagem-tema-atual">
+              <img src="" alt="" id="imagemAnualEditar" class="imagem-tema-anual">
             </div>
           </div>
           <div class="mb-3">
-            <label for="imagemTemaAtualEditarInput" class="col-form-label">Inserir nova imagem</label>
-            <input type="file" class="form-control" id="imagemTemaAtualEditarInput"></input>
+            <label for="imagemTemaAnualEditarInput" class="col-form-label">Inserir nova imagem</label>
+            <input type="file" class="form-control" id="imagemTemaAnualEditarInput"></input>
           </div>
           <div class="mb-3">
-            <label for="tituloTemaAtualEditarInput" class="col-form-label">Título Tema Atual</label>
-            <textarea class="form-control" id="tituloTemaAtualEditarInput"></textarea>
+            <label for="tituloTemaAnualEditarInput" class="col-form-label">Título Tema Anual</label>
+            <textarea class="form-control" id="tituloTemaAnualEditarInput"></textarea>
           </div>
           <div class="mb-3">
-            <label for="textoTemaAtualEditarInput" class="col-form-label">Texto Tema Atual</label>
-            <textarea class="form-control" id="textoTemaAtualEditarInput"></textarea>
+            <label for="textoTemaAnualEditarInput" class="col-form-label">Texto Tema Anual</label>
+            <textarea class="form-control" id="textoTemaAnualEditarInput"></textarea>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" onclick="editarTemaAtual()">Salvar</button>
+          <button type="button" class="btn btn-primary" onclick="editarTemaAnual()">Salvar</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal fade" id="modalRemoverTemasAtuais" aria-labelledby="modalRemoverTemasAtuais" aria-hidden="true">
+  <div class="modal fade" id="modalRemoverTemasAnuais" aria-labelledby="modalRemoverTemasAnuais" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title">
-            Remover Temas Atuais
+            Remover Temas Anuais
           </h1>
         </div>
         <div class="modal-body">
-          <div class="alert alert-dismissible fade d-none alert-modal-remover-tema-atual" role="alert">
+          <div class="alert alert-dismissible fade d-none alert-modal-remover-tema-anual" role="alert">
           </div>
           <div class="mb-3">
-            <label for="idTemaAtualRemoverInput" class="col-form-label">ID Tema Atual</label>
-            <input class="form-control" id="idTemaAtualRemoverInput" disabled></input>
+            <label for="idTemaAnualRemoverInput" class="col-form-label">ID Tema Anual</label>
+            <input class="form-control" id="idTemaAnualRemoverInput" disabled></input>
           </div>
           <div class="mb-3">
-            <p>Imagem Atual</p>
+            <p>Imagem Anual</p>
             <div class="d-flex justify-content-center">
-              <img src="" alt="" id="imagemAtualRemover" class="imagem-tema-atual">
+              <img src="" alt="" id="imagemAnualRemover" class="imagem-tema-anual">
             </div>
           </div>
           <div class="mb-3">
-            <label for="tituloTemaAtualRemoverInput" class="col-form-label">Título Tema Atual</label>
-            <textarea class="form-control" id="tituloTemaAtualRemoverInput" disabled></textarea>
+            <label for="tituloTemaAnualRemoverInput" class="col-form-label">Título Tema Anual</label>
+            <textarea class="form-control" id="tituloTemaAnualRemoverInput" disabled></textarea>
           </div>
           <div class="mb-3">
-            <label for="textoTemaAtualRemoverInput" class="col-form-label">Texto Tema Atual</label>
-            <textarea class="form-control" id="textoTemaAtualRemoverInput" disabled></textarea>
+            <label for="textoTemaAnualRemoverInput" class="col-form-label">Texto Tema Anual</label>
+            <textarea class="form-control" id="textoTemaAnualRemoverInput" disabled></textarea>
           </div>
           <div class="mb-3">
-            <h4>Deseja realmente remover o Tema Atual?</h4>
+            <h4>Deseja realmente remover o Tema Anual?</h4>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-danger" onclick="removerTemaAtual()">Remover</button>
+          <button type="button" class="btn btn-danger" onclick="removerTemaAnual()">Remover</button>
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@
           <a href="home_page.html" class="botoes_header nav-link rounded-3 p-1">Recreatur</a>
           <a href="habilidades_profissional.html" class="botoes_header nav-link rounded-3  p-1">Habilidades do
             Futuro</a>
-          <a href="temas_atuais.html" class="selecionado botoes_header nav-link rounded-3 p-1">Temas Atuais</a>
+          <a href="temas_anuais.html" class="selecionado botoes_header nav-link rounded-3 p-1">Temas Anuais</a>
           <a href="depoimentos.html" class="botoes_header nav-link rounded-3  p-1">Depoimentos</a>
           <a href="patrocinadores.html" class="botoes_header nav-link rounded-3  p-1">Patrocinadores</a>
           <a href="nos_apoie.html" class="nav-link botao_apoie rounded-3 py-1 px-4">Nos apoie </a>
@@ -159,14 +159,14 @@
     <div class="fundo"></div>
     <section class="row justify-content-center">
       <div class="row justify-content-center bg-white col-10 border rounded-4">
-        <h1 class="col-12 mt-3 text-center text-danger luckiest-guy-regular">Temas Atuais</h1>
+        <h1 class="col-12 mt-3 text-center text-danger luckiest-guy-regular">Temas Anuais</h1>
         <p class=" col-12 mt-3 text-center fs-5">O Projeto Recreatur é um curso de capacitação na área da recreação e do
           turismo, para jovens do ensino médio da rede pública. Realizado nas cidades de São Paulo, Cotia e Campos do
           Jordão. A cada ano é escolhido um tema, geralmente com base na indicação de temas anuais da UNESCO.</p>
       </div>
-      <div class="d-flex justify-content-center bg-white align-items-center gap-2 mt-3 d-none" id="adicionarTemaAtual">
-        <h4>Adicionar novo tema atual</h4>
-        <button class="btn bg-primary" data-bs-toggle="modal" data-bs-target="#modalTemasAtuais">
+      <div class="d-flex justify-content-center bg-white align-items-center gap-2 mt-3 d-none" id="adicionarTemaAnual">
+        <h4>Adicionar novo tema anual</h4>
+        <button class="btn bg-primary" data-bs-toggle="modal" data-bs-target="#modalTemasAnuais">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-plus-square-fill"
             viewBox="0 0 16 16">
             <path
@@ -176,7 +176,7 @@
       </div>
       <h2 class=" col-12 text-center text-decoration-underline mt-4">Conheça alguns temas já trabalhados:</h2>
     </section>
-    <div class="row justify-content-center gap-4 mt-5" id="temasAtuais">
+    <div class="row justify-content-center gap-4 mt-5" id="temasAnuais">
     </div>
   </main>
 
@@ -244,8 +244,8 @@
                 <li>Habilidades do Futuro</li>
               </a>
 
-              <a href="temas_atuais.html" class="nav-link">
-                <li>Temas Atuais</li>
+              <a href="temas_anuais.html" class="nav-link">
+                <li>Temas Anuais</li>
               </a>
 
               <a href="depoimentos.html" class="nav-link">
@@ -269,7 +269,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="js/frontend.js"></script>
-  <script src="js/temasAtuais.js"></script>
+  <script src="js/temasAnuais.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     prepararPagina()
