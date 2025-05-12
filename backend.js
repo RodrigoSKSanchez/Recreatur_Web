@@ -96,7 +96,7 @@ app.post("/signup", async (req, res) => {
         const password = req.body.password;
         const password_criptografada = await bcrypt.hash(password, 10);
         const tokenCadastrar = req.body.token; // Fazendo essa validação para criar um único usuário
-        if (tokenCadastrar && tokenCadastrar == process.env.JWT_SECRET) {
+        if (tokenCadastrar && tokenCadastrar == process.env.CADASTRAR) {
             const usuario = new Usuario({
                 login: login,
                 password: password_criptografada,
