@@ -124,7 +124,7 @@ function mudarHeader() {
     //mudando a opacidade do header, caso não esteja no começo da página ao carregar
     if(Math.abs(body.getBoundingClientRect().y) > headerHeight) {
         header.style.backgroundColor = "rgba(103, 135, 231, 0.5)";
-        navbar.classList.remove("navbar-expanded-lg");
+        navbar.classList.remove("navbar-expand-lg");
         localTexto.removeChild(texto);
     }
     document.onscroll = (() => {

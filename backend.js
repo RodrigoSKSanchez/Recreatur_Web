@@ -9,8 +9,8 @@ const app = express();
 app.use(express.json({ limit: "50mb" })); // Evitando payload too large
 app.use(cors());
 
-const TemasAtuais = mongoose.model(
-    "Temas_Atuais",
+const TemasAnuais = mongoose.model(
+    "Temas_Anuais",
     mongoose.Schema({
         titulo: { type: String },
         texto: { type: String },
@@ -181,56 +181,56 @@ app.delete(
     },
 );
 
-app.get("/temas-atuais", async (req, res) => {
-    const temasAtuais = await TemasAtuais.find();
-    res.json(temasAtuais);
+app.get("/temas-anuais", async (req, res) => {
+    const temasAnuais = await TemasAnuais.find();
+    res.json(temasAnuais);
 });
 
 app.post(
-    "/temas-atuais",
+    "/temas-anuais",
     (req, res, next) => validarToken(req, res, next),
     async (req, res) => {
         const titulo = req.body.titulo;
         const texto = req.body.texto;
         const imagem = req.body.imagem;
-        const temaAtual = new TemasAtuais({
+        const temaAnual = new TemasAnuais({
             titulo: titulo,
             texto: texto,
             imagem: imagem,
         });
-        await temaAtual.save();
-        const temasAtuais = await TemasAtuais.find();
-        res.json(temasAtuais);
+        await temaAnual.save();
+        const temasAnuais = await TemasAnuais.find();
+        res.json(temasAnuais);
     },
 );
 
 app.put(
-    "/temas-atuais",
+    "/temas-anuais",
     (req, res, next) => validarToken(req, res, next),
     async (req, res) => {
-        const idTemaAtual = req.body.idTemaAtual;
+        const idTemaAnual = req.body.idTemaAnual;
         const titulo = req.body.titulo;
         const texto = req.body.texto;
         const imagem = req.body.imagem;
 
-        await TemasAtuais.findByIdAndUpdate(idTemaAtual, {
+        await TemasAnuais.findByIdAndUpdate(idTemaAnual, {
             titulo: titulo,
             texto: texto,
             imagem: imagem,
         });
-        const temasAtuais = await TemasAtuais.find();
-        res.json(temasAtuais);
+        const temasAnuais = await TemasAnuais.find();
+        res.json(temasAnuais);
     },
 );
 
 app.delete(
-    "/temas-atuais",
+    "/temas-anuais",
     (req, res, next) => validarToken(req, res, next),
     async (req, res) => {
-        const idTemaAtual = req.body.idTemaAtual;
-        await TemasAtuais.findByIdAndDelete(idTemaAtual);
-        const temasAtuais = await TemasAtuais.find();
-        res.json(temasAtuais);
+        const idTemaAnual = req.body.idTemaAnual;
+        await TemasAnuais.findByIdAndDelete(idTemaAnual);
+        const temasAnuais = await TemasAnuais.find();
+        res.json(temasAnuais);
     },
 );
 
