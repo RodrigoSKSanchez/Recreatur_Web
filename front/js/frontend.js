@@ -92,6 +92,22 @@ function prepararAxios(){
     axios.defaults.headers.post["Authorization"] = `Bearer ${token}`;
     axios.defaults.headers.put["Authorization"] = `Bearer ${token}`;
     axios.defaults.headers.delete["Authorization"] = `Bearer ${token}`;
+    axios.defaults.headers.get["Authorization"] = `Bearer ${token}`;
+    validarToken().then(console.log("Token válido"));
+}
+
+async function validarToken(){
+    const token = localStorage.getItem("token");
+    if(!token){
+        return;
+    }
+    const URLcompleta = `${protocolo}${baseURL}/validar`;
+    let res = (await axios.get(URLcompleta)).data;
+    let valido = res.valido;
+    if (!valido){
+        localStorage.removeItem("token");
+        location.reload();
+    }
 }
 
 function mudarHeader() {
